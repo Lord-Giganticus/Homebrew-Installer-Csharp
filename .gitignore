@@ -1,0 +1,7 @@
+# Custom Stuff
+.vs/
+.vscode/
+pull.bat
+push.bat
+obj/
+bin/
