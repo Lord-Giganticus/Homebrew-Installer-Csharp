@@ -1,4 +1,4 @@
-version: 1.0.0.0
+version: 1.0.0.1
 environment:
   matrix:
   - solution_name: Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer.sln
