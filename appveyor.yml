@@ -3,6 +3,8 @@ environment:
   matrix:
   - solution_name: Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer.sln
   - solution_name: Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer.sln
+platform: Any CPU
+configuration: Release
 build_script:
 - cmd: msbuild %solution_name%
 after_build:
