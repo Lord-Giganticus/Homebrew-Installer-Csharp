@@ -1,12 +1,8 @@
 version: 1.0.0.{build}
-environment:
-  matrix:
-  - solution_name: Wii-U-Homebrew Installer\Wii-U-Homebrew-Installer.sln
-  - solution_name: Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer.sln
 platform: Any CPU
 configuration: Release
 build_script:
-- cmd: msbuild -m %solution_name% && 7z a Homebrew-Installers.zip "Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer\bin\Release\Wii-or-VWii-Homebrew-Installer.exe" "Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer\bin\Release\Wii-U-Homebrew-Installer.exe"
+- cmd: msbuild Wii-U-Homebrew Installer\Wii-U-Homebrew-Installer.sln && msbuild Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer.sln && 7z a Homebrew-Installers.zip "Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer\bin\Release\Wii-or-VWii-Homebrew-Installer.exe" "Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer\bin\Release\Wii-U-Homebrew-Installer.exe"
 artifacts:
 - path: Homebrew-Installers.zip
   name: Homebrew-Installers
