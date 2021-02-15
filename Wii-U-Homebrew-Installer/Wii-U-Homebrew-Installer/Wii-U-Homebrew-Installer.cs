@@ -15,7 +15,8 @@ namespace Wii_U_Homebrew_Installer
                 Console.WriteLine("Copy_to_SD folder dectected. Jumping to Copier code.");
                 Thread.Sleep(2000);
                 goto Copier;
-            } else
+            }
+            else
             {
                 //pass
             }
@@ -36,7 +37,7 @@ namespace Wii_U_Homebrew_Installer
             Console.WriteLine("Running .bat files.");
             Extractor.Extract();
             Mover.Move();
-            Copier:
+        Copier:
             Environment.CurrentDirectory = Directory.GetCurrentDirectory();
             Console.WriteLine("Enter the drive you want to copy the files to:");
             string drive = Console.ReadLine();

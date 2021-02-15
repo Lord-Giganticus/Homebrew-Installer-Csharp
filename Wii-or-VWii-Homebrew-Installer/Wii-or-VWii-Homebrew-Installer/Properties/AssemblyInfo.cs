@@ -1,16 +1,16 @@
-﻿using System.Resources;
-using System.Reflection;
+﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Wii U Homebrew Installer")]
-[assembly: AssemblyDescription("A program to ready your SD/USB card for Wii U Homebrew")]
+[assembly: AssemblyTitle("Wii-or-VWii-Homebrew-Installer")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Wii U Homebrew Installer")]
-[assembly: AssemblyCopyright("Copyright © Lord-Giganticus and Mattamech. 2021")]
+[assembly: AssemblyProduct("Wii-or-VWii-Homebrew-Installer")]
+[assembly: AssemblyCopyright("Copyright © Lord-Giganticus. 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1a3e5eac-184e-4cac-b38a-fc371d67423b")]
+[assembly: Guid("cb4329fb-89d4-4074-ac4c-af13cdf37e1c")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,6 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.0.0")]
-[assembly: AssemblyFileVersion("1.1.0.0")]
-[assembly: NeutralResourcesLanguage("en-US")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

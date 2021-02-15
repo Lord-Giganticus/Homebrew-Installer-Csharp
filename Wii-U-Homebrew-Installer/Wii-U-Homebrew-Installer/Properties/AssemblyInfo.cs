@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Wii or VWii Homebrew Installer")]
-[assembly: AssemblyDescription("A Program to ready your SD/USB for Wii/VWii Homebrew")]
+[assembly: AssemblyTitle("Wii-U-Homebrew-Installer")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Wii or VWii Homebrew Installer")]
-[assembly: AssemblyCopyright("Copyright © Lord-Giganticus and Mattamech. 2021")]
+[assembly: AssemblyProduct("Wii-U-Homebrew-Installer")]
+[assembly: AssemblyCopyright("Copyright © Lord-Giganticus 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e471d8b8-2d9d-457a-a77c-9ead09fb2dfb")]
+[assembly: Guid("1e6089fa-d470-4ea4-b073-1b44b5501935")]
 
 // Version information for an assembly consists of the following four values:
 //
