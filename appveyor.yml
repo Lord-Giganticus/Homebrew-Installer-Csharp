@@ -1,8 +1,7 @@
 version: 1.0.0.{build}
 environment:
-  matrix:
-  - solution_name1: Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer.sln
-  - solution_name2: Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer.sln
+  solution_name1: Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer.sln
+  solution_name2: Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer.sln
 platform: Any CPU
 configuration: Release
 build_script:
