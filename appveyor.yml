@@ -6,7 +6,7 @@ environment:
 build_script:
 - cmd: msbuild %solution_name%
 after_build:
-- cmd: 7z a Homebrew-Installers.zip "\Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer\bin\Release\Wii-or-VWii-Homebrew-Installer.exe" "\Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer\bin\Release\Wii-U-Homebrew-Installer.exe"
+- cmd: 7z a Homebrew-Installers.zip "Wii-or-VWii-Homebrew-Installer\Wii-or-VWii-Homebrew-Installer\bin\Release\Wii-or-VWii-Homebrew-Installer.exe" "Wii-U-Homebrew-Installer\Wii-U-Homebrew-Installer\bin\Release\Wii-U-Homebrew-Installer.exe"
 artifacts:
 - path: Homebrew-Installers.zip
   name: Homebrew-Installers
