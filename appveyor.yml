@@ -6,3 +6,12 @@ build_script:
 artifacts:
 - path: Homebrew-Installers.zip
   name: Homebrew-Installers
+deploy:
+- provider: GitHub
+  tag: auto-build
+  release: Homebrew Installers Auto-Build
+  description: latest build made from the latest commit
+  auth_token:
+    secure: 8r3QMt82uBYlPjD+kITqDiB+ArNkYj4Wd3YytPMtZKJ/hmW6P6NCV76siuCEZ3CR
+  prerelease: true
+  force_update: true
