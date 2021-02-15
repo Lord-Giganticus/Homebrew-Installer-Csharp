@@ -34,6 +34,11 @@ namespace Wii_or_VWii_Homebrew_Installer
                 VWii.Move();
                 goto Copier;
             }
+            else
+            {
+                Console.WriteLine("Improper Input. Exiting.");
+                Environment.Exit(1);
+            }
         Copier:
         Environment.CurrentDirectory = Directory.GetCurrentDirectory();
         Console.WriteLine("Enter the drive you want to copy the files to:");
