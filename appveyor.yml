@@ -6,6 +6,10 @@ build_script:
 artifacts:
 - path: Homebrew-Installers.zip
   name: Homebrew-Installers
+- path: Wii-or-VWii-Homebrew-Installer.exe
+  name: Wii/VWii Installer
+- path: Wii-U-Homebrew-Installer.exe
+  name: Wii U Installer
 deploy:
 - provider: GitHub
   tag: auto-build
