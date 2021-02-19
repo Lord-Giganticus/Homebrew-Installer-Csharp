@@ -7,6 +7,14 @@ namespace Wii_or_VWii_Homebrew_Installer
 {
     class VWii
     {
+        public static void Make_Text()
+        {
+            using (StreamWriter sw = File.CreateText("vwii.txt"))
+            {
+                sw.WriteLine("Generated for VWii Homebrew.");
+                sw.Close();
+            }
+        }
         public static void Download()
         {
             using (var client = new WebClient())

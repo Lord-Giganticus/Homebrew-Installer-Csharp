@@ -8,6 +8,14 @@ namespace Wii_or_VWii_Homebrew_Installer
 {
     class Wii
     {
+        public static void Make_Text()
+        {
+            using (StreamWriter sw = File.CreateText("wii.txt"))
+            {
+                sw.WriteLine("Generated for Wii Homebrew.");
+                sw.Close();
+            }
+        }
         public static void Download()
         {
             
