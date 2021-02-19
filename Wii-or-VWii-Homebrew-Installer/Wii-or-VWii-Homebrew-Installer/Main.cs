@@ -12,15 +12,19 @@ namespace Wii_or_VWii_Homebrew_Installer
             {
                 Console.WriteLine("Copy_to_SD folder dectected. Checking what variant it was made for.");
                 Thread.Sleep(2000);
+                string CWD = Directory.GetCurrentDirectory();
+                Directory.SetCurrentDirectory("Copy_to_SD");
                 if (Copier.Checker("wii.txt") == true)
                 {
                     Console.WriteLine("This folder was made for Wii Homebrew. If this is correct enter 1. If not enter 2.");
                     Question();
+                    Directory.SetCurrentDirectory(CWD);
                 }
                 else if (Copier.Checker("vwii.txt") == true)
                 {
                     Console.WriteLine("This folder was made for VWii Homebrew. If this is correct enter 1. If not enter 2.");
                     Question();
+                    Directory.SetCurrentDirectory(CWD);
                 }
                 else if (Copier.Checker("wiiu.txt") == true)
                 {
@@ -36,20 +40,27 @@ namespace Wii_or_VWii_Homebrew_Installer
             }
             else
             {
-                //pass
+                goto Start;
             }
+            Start:
             Console.WriteLine("Chose which Wii variant you want to ready your sd card for:\n[1]Wii\n[2]VWii\n");
             string Choice = Console.ReadLine();
             if (Choice == "1")
             {
+                string CWD = Directory.GetCurrentDirectory();
+                Directory.SetCurrentDirectory("Copy_to_SD");
                 Wii.Make_Text();
+                Directory.SetCurrentDirectory(CWD);
                 Wii.Download();
                 Wii.Extract();
                 Wii.Move();
                 goto Copier;
             } else if (Choice == "2")
             {
+                string CWD = Directory.GetCurrentDirectory();
+                Directory.SetCurrentDirectory("Copy_to_SD");
                 VWii.Make_Text();
+                Directory.SetCurrentDirectory(CWD);
                 VWii.Download();
                 VWii.Extract();
                 VWii.Move();
@@ -63,7 +74,6 @@ namespace Wii_or_VWii_Homebrew_Installer
         Copier:
             Copier.Copy();
         }
-
         private static void Question()
         {
             string v = Console.ReadLine();
