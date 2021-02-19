@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Copier.cs" />
     <Compile Include="Extractor.cs" />
     <Compile Include="Mover.cs" />
     <Compile Include="Wii-U-Homebrew-Installer.cs" />

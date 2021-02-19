@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Diagnostics;
 using System.IO;
 using System;
 using System.Threading;
@@ -12,14 +11,37 @@ namespace Wii_U_Homebrew_Installer
         {
             if (Directory.Exists("Copy_to_SD"))
             {
-                Console.WriteLine("Copy_to_SD folder dectected. Jumping to Copier code.");
+                Console.WriteLine("Copy_to_SD folder dectected. Checking what variant it was made for.");
                 Thread.Sleep(2000);
+                string cwd = Directory.GetCurrentDirectory();
+                Directory.SetCurrentDirectory("Copy_to_SD");
+                if (Copier.Checker("wii.txt") == true)
+                {
+                    Console.WriteLine("This folder was made for Wii Homebrew. Therefore it is not compatable. Exiting.");
+                    Environment.Exit(1);
+                }
+                else if (Copier.Checker("vwii.txt") == true)
+                {
+                    Console.WriteLine("This folder was made for VWii Homebrew. Therefore it is not compatable. Exiting.");
+                    Environment.Exit(1);
+                }
+                else if (Copier.Checker("wiiu.txt") == true)
+                {
+                    Console.WriteLine("This folder was made for Wii U Homebrew. Moving on.");
+                    Thread.Sleep(2000);
+                    Directory.SetCurrentDirectory(cwd);
+                }
+                else
+                {
+                    Environment.Exit(2);
+                }
                 goto Copier;
             }
             else
             {
-                //pass
+                goto Download;
             }
+            Download:
             Console.WriteLine("Downloading files.");
             using (var client = new WebClient())
             {
@@ -33,19 +55,19 @@ namespace Wii_U_Homebrew_Installer
                 client.DownloadFile("http://stahlworks.com/dev/tar.exe", "tar.exe");
             }
             Directory.CreateDirectory("Copy_to_SD");
-            Environment.CurrentDirectory = Directory.GetCurrentDirectory();
+            string CWD = Directory.GetCurrentDirectory();
+            Directory.SetCurrentDirectory("Copy_to_SD");
+            using (StreamWriter sw = File.CreateText("wiiu.txt"))
+            {
+                sw.WriteLine("Generated for Wii U Homebrew.");
+                sw.Close();
+            }
+            Directory.SetCurrentDirectory(CWD);
             Console.WriteLine("Running .bat files.");
             Extractor.Extract();
             Mover.Move();
         Copier:
-            Environment.CurrentDirectory = Directory.GetCurrentDirectory();
-            Console.WriteLine("Enter the drive you want to copy the files to:");
-            string drive = Console.ReadLine();
-            Process process = Process.Start("CMD.exe", "/c robocopy /E Copy_to_SD \"" + drive + "\"");
-            process.WaitForExit();
-            Console.WriteLine("Complete. Exiting.");
-            Thread.Sleep(5000);
-            Environment.Exit(0);
+            Copier.Copy();
         }
     }
 }
