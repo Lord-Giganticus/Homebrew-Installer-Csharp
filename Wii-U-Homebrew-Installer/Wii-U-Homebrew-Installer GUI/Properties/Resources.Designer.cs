@@ -63,79 +63,9 @@ namespace Wii_U_Homebrew_Installer_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] appstore {
+        public static byte[] Recourses {
             get {
-                object obj = ResourceManager.GetObject("appstore", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] cbhc {
-            get {
-                object obj = ResourceManager.GetObject("cbhc", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] haxchi {
-            get {
-                object obj = ResourceManager.GetObject("haxchi", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Haxchi_Installer_tar {
-            get {
-                object obj = ResourceManager.GetObject("Haxchi_Installer_tar", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] homebrew_launcher {
-            get {
-                object obj = ResourceManager.GetObject("homebrew_launcher", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] mocha {
-            get {
-                object obj = ResourceManager.GetObject("mocha", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] tar {
-            get {
-                object obj = ResourceManager.GetObject("tar", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] unzip {
-            get {
-                object obj = ResourceManager.GetObject("unzip", resourceCulture);
+                object obj = ResourceManager.GetObject("Recourses", resourceCulture);
                 return ((byte[])(obj));
             }
         }
