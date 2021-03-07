@@ -11,6 +11,7 @@ using System.Timers;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO.Compression;
+using System.Net;
 
 namespace Wii_U_Homebrew_Installer_GUI.GUI
 {
@@ -46,6 +47,12 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
                     string file = ofd.FileName;
                     string directory = Assembly.GetEntryAssembly().Location;
                     ZipFile.ExtractToDirectory(file, directory);
+                }
+            } else
+            {
+                using (WebClient client = new WebClient)
+                {
+                    client.DownloadFile("https://lord-giganticus.github.io/Homebrew-Installer-Csharp/files/Wii-U.zip", "Wii-U.zip");
                 }
             }
         }
