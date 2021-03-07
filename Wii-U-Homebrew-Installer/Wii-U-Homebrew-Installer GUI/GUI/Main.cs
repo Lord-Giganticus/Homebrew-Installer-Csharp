@@ -41,9 +41,12 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
                     Multiselect = false
                 };
                 DialogResult result = ofd.ShowDialog();
-                string file = ofd.FileName;
-                string directory = Assembly.GetEntryAssembly().Location;
-                ZipFile.ExtractToDirectory(file, directory);
+                if (result == DialogResult.OK)
+                {
+                    string file = ofd.FileName;
+                    string directory = Assembly.GetEntryAssembly().Location;
+                    ZipFile.ExtractToDirectory(file, directory);
+                }
             }
         }
     }
