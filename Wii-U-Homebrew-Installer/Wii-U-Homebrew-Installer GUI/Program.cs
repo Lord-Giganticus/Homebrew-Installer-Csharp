@@ -17,7 +17,7 @@ namespace Wii_U_Homebrew_Installer_GUI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Start());
         }
     }
 }

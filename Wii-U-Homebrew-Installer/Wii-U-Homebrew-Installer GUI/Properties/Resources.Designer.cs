@@ -61,16 +61,6 @@ namespace Wii_U_Homebrew_Installer_GUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Recourses {
-            get {
-                object obj = ResourceManager.GetObject("Recourses", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap Wii_U {
