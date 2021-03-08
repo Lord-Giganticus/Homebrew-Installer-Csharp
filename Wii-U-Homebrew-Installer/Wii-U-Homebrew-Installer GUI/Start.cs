@@ -33,6 +33,12 @@ namespace Wii_U_Homebrew_Installer_GUI
             Hide();
             GUI.Main main = new GUI.Main();
             main.ShowDialog();
+            Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
