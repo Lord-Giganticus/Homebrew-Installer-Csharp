@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using System.Reflection;
 using System.IO.Compression;
 using System.Net;
-using Microsoft.VisualBasic.FileIO;
 
 namespace Wii_U_Homebrew_Installer_GUI.GUI
 {
@@ -80,42 +71,6 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
             Directory.Move("haxchi", @"Copy\haxchi");
             Directory.Move("cbhc", @"Copy\cbhc");
         }
-        /// <summary>
-        /// Copys one dir to another by calling CopyAll. From https://stackoverflow.com/a/690980
-        /// </summary>
-        /// <param name="sourceDirectory">Initial Directory</param>
-        /// <param name="targetDirectory">End Directory</param>
-        public static void Copy(string sourceDirectory, string targetDirectory)
-        {
-            DirectoryInfo diSource = new DirectoryInfo(sourceDirectory);
-            DirectoryInfo diTarget = new DirectoryInfo(targetDirectory);
-
-            CopyAll(diSource, diTarget);
-        }
-        /// <summary>
-        /// Called by Copy to do all the work. From https://stackoverflow.com/a/690980
-        /// </summary>
-        /// <param name="source">Source dir</param>
-        /// <param name="target">Targer dir</param>
-        public static void CopyAll(DirectoryInfo source, DirectoryInfo target)
-        {
-            Directory.CreateDirectory(target.FullName);
-
-            // Copy each file into the new directory.
-            foreach (FileInfo fi in source.GetFiles())
-            {
-                fi.CopyTo(Path.Combine(target.FullName, fi.Name), true);
-            }
-
-            // Copy each subdirectory using recursion.
-            foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
-            {
-                DirectoryInfo nextTargetSubDir =
-                    target.CreateSubdirectory(diSourceSubDir.Name);
-                CopyAll(diSourceSubDir, nextTargetSubDir);
-            }
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
@@ -149,7 +104,7 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
             if (result == DialogResult.OK)
             {
                 string save_dir = dialog.SelectedPath;
-                Copy(Copy_Directory,save_dir);
+                Classes.Copier.DirectoryCopy(Copy_Directory,save_dir,true);
                 MessageBox.Show("Complete!");
                 run = true;
                 Properties.Settings.Default.Run_Once = run;
