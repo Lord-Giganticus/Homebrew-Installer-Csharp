@@ -5,3 +5,4 @@ pull.bat
 push.bat
 obj/
 bin/
+*.user
