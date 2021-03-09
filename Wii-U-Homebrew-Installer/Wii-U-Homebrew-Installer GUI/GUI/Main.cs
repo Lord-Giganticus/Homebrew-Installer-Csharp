@@ -22,9 +22,23 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
         {
             InitializeComponent();
         }
-
+        public bool run = Properties.Settings.Default.Run_Once;
         private void Main_Load(object sender, EventArgs e)
         {
+            if (run)
+            {
+                if (!Directory.Exists("Copy"))
+                {
+                    goto Start;
+                } else
+                {
+                    return;
+                }
+            } else
+            {
+                goto Start;
+            }
+        Start:
             if (Classes.WebCheck.CheckForInternetConnection() == false)
             {
                 MessageBox.Show("There is no Internet connection! Select OK to search for the offline zip packaged from the releases.", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -65,39 +79,6 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
             Directory.Move("wiiu", @"Copy\wiiu");
             Directory.Move("haxchi", @"Copy\haxchi");
             Directory.Move("cbhc", @"Copy\cbhc");
-            Directory.SetCurrentDirectory("Copy");
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Directory.SetCurrentDirectory("Copy");
-            string Copy_Directory = Directory.GetCurrentDirectory();
-            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
-            string sd_card = @"C:\";
-            foreach (DriveInfo d in allDrives)
-            {
-                if (d.DriveType == DriveType.Removable)
-                {
-                    sd_card = d.Name;
-                }
-            }
-            SaveFileDialog save = new SaveFileDialog
-            {
-                InitialDirectory = sd_card,
-                Title = "Search for the drive to save",
-                DefaultExt = ".txt",
-                Filter = "Blank Text File|*.txt",
-                FileName = "Blank",
-                CheckPathExists = true
-            };
-            DialogResult result = save.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                string folder = Path.GetDirectoryName(save.FileName);
-                Copy(Copy_Directory, folder);
-
-            }
         }
         /// <summary>
         /// Copys one dir to another by calling CopyAll. From https://stackoverflow.com/a/690980
@@ -132,6 +113,51 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
                 DirectoryInfo nextTargetSubDir =
                     target.CreateSubdirectory(diSourceSubDir.Name);
                 CopyAll(diSourceSubDir, nextTargetSubDir);
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+            Directory.SetCurrentDirectory("Copy");
+            string Copy_Directory = Directory.GetCurrentDirectory();
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            string sd_card = @"C:\";
+            foreach (DriveInfo d in allDrives)
+            {
+                if (d.DriveType == DriveType.Removable)
+                {
+                    if (!Directory.Exists(d.Name))
+                    {
+                        continue;
+                    } else
+                    {
+                        sd_card = d.Name;
+                        break;
+                    }
+                }
+            }
+            FolderBrowserDialog dialog = new FolderBrowserDialog
+            {
+                SelectedPath = sd_card,
+                Description = "Search for the drive you want to save to.",
+                UseDescriptionForTitle = true,
+                AutoUpgradeEnabled = true,
+                RootFolder = Environment.SpecialFolder.Desktop
+            };
+            DialogResult result = dialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string save_dir = dialog.SelectedPath;
+                Copy(Copy_Directory,save_dir);
+                MessageBox.Show("Complete!");
+                run = true;
+                Properties.Settings.Default.Run_Once = run;
+                Properties.Settings.Default.Save();
+                Close();
+            } else
+            {
+                return;
             }
         }
     }

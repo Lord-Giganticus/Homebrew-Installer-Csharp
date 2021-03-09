@@ -41,6 +41,7 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
             this.button1.TabIndex = 0;
             this.button1.Text = "Press this buttion to select a folder to copy the files over.";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Main
             // 
