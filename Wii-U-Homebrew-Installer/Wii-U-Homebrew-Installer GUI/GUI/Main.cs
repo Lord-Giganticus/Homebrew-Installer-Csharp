@@ -106,9 +106,12 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
                 string save_dir = dialog.SelectedPath;
                 Classes.Copier.DirectoryCopy(Copy_Directory,save_dir,true);
                 MessageBox.Show("Complete!");
-                run = true;
-                Properties.Settings.Default.Run_Once = run;
-                Properties.Settings.Default.Save();
+                if (!run)
+                {
+                    run = true;
+                    Properties.Settings.Default.Run_Once = run;
+                    Properties.Settings.Default.Save();
+                }
                 Close();
             } else
             {
