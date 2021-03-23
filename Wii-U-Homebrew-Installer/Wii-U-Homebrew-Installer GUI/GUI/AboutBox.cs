@@ -13,7 +13,7 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = "1.0.0.0";
             this.labelCopyright.Text = "Copyright Lord-Giganticus";
-            this.labelCompanyName.Text = "Lord-G Enterprises";
+            this.labelCompanyName.Text = "Lord-Giganticus";
             this.textBoxDescription.Text = AssemblyDescription;
         }
 
