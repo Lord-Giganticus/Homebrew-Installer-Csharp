@@ -32,26 +32,10 @@ namespace Wii_U_Homebrew_Installer_GUI.GUI
         Start:
             if (Classes.WebCheck.CheckForInternetConnection() == false)
             {
-                MessageBox.Show("There is no Internet connection! Select OK to search for the offline zip packaged from the releases.", "Waring", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                OpenFileDialog ofd = new OpenFileDialog
-                {
-                    InitialDirectory = Directory.GetCurrentDirectory(),
-                    FileName = "Wii-U",
-                    DefaultExt = ".zip",
-                    Filter = "ZIP file|*.zip",
-                    CheckFileExists = true,
-                    CheckPathExists = true,
-                    Title = "Search for the offline zip file.",
-                    Multiselect = false
-                };
-                DialogResult result = ofd.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    string file = ofd.FileName;
-                    string directory = Directory.GetCurrentDirectory();
-                    ZipFile.ExtractToDirectory(file, directory);
-                    goto Extracted;
-                }
+                Classes.Manager manager = new Classes.Manager();
+                manager.ExtractResource("Wii-U.zip",Properties.Resources.Wii_U_Zip);
+                ZipFile.ExtractToDirectory("Wii-U.zip", Directory.GetCurrentDirectory());
+                goto Extracted;
             }
             else
             {

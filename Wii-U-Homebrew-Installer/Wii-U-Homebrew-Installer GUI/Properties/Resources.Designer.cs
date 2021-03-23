@@ -63,10 +63,20 @@ namespace Wii_U_Homebrew_Installer_GUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap Wii_U {
+        public static System.Drawing.Bitmap Wii_U_Image {
             get {
-                object obj = ResourceManager.GetObject("Wii_U", resourceCulture);
+                object obj = ResourceManager.GetObject("Wii_U_Image", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Wii_U_Zip {
+            get {
+                object obj = ResourceManager.GetObject("Wii_U_Zip", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
