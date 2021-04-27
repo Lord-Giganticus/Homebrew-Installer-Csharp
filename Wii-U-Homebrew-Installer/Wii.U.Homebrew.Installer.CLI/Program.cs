@@ -44,7 +44,15 @@ namespace Wii.U.Homebrew.Installer.CLI
                     t.Add(d.DriveType, d);
                 if (t.ContainsKey(DriveType.Removable))
                 {
-                    sd_card = t[DriveType.Removable].RootDirectory.FullName;
+                    var dtlist = new List<DriveType>();
+                    var dilist = new List<DriveInfo>();
+                    foreach (var d in t.Values)
+                    {
+                        dtlist.Add(d.DriveType);
+                        dilist.Add(d);
+                    }
+                    var index = dtlist.IndexOf(DriveType.Removable);
+                    sd_card = dilist[index].RootDirectory.FullName;
                     break;
                 }
                 else
