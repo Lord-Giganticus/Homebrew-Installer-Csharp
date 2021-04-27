@@ -14,10 +14,8 @@ namespace Wii.or.VWii.Homebrew.Installer.CLI
     {
         internal static string Assembly_Path { get => AppContext.BaseDirectory; }
 
-        static void Main(string[] args)
-        {
-            
-        }
+        static void Main(string[] args) =>
+            MainAsync(args).GetAwaiter().GetResult();
 
         static async Task MainAsync(string[] args)
         {
