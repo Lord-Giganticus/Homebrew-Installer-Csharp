@@ -35,6 +35,8 @@ namespace Wii.U.Homebrew.Installer.CLI
             var types = new List<DriveType>();
             foreach (var d in DriveInfo.GetDrives())
                 types.Add(d.DriveType);
+            if (types.Contains(DriveType.Removable))
+                sd_card = DriveInfo.GetDrives()[types.IndexOf(DriveType.Removable)].RootDirectory.FullName;
             while (!types.Contains(DriveType.Removable))
             {
                 Console.WriteLine("Please insert your sd card and press any key when it's inserted.");
