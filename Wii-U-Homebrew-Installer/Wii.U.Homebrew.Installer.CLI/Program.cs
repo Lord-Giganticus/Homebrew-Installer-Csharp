@@ -28,7 +28,7 @@ namespace Wii.U.Homebrew.Installer.CLI
             Directory.Move("wiiu", @"Copy\wiiu");
             Directory.Move("haxchi", @"Copy\haxchi");
             Directory.Move("cbhc", @"Copy\cbhc");
-            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+            Directory.SetCurrentDirectory(AppContext.BaseDirectory);
             Directory.SetCurrentDirectory("Copy");
             string Copy_Directory = Directory.GetCurrentDirectory();
             string sd_card = "";
@@ -61,7 +61,7 @@ namespace Wii.U.Homebrew.Installer.CLI
                     continue;
             }
             await Copier.DirectoryCopyAsync(Copy_Directory, sd_card, true);
-            Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetEntryAssembly().Location));
+            Directory.SetCurrentDirectory(AppContext.BaseDirectory);
             Directory.Delete(Copy_Directory, true);
             File.Delete("Wii-U.zip");
             Console.WriteLine("Complete!");

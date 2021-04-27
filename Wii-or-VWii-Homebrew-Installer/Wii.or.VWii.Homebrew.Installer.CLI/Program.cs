@@ -12,7 +12,7 @@ namespace Wii.or.VWii.Homebrew.Installer.CLI
 {
     class Program
     {
-        internal static string Assembly_Path { get => Path.GetDirectoryName(Assembly.GetEntryAssembly().Location); }
+        internal static string Assembly_Path { get => AppContext.BaseDirectory; }
 
         static void Main(string[] args)
         {
